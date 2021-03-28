@@ -1,0 +1,35 @@
+.wheel {
+    display: flex;
+    position: relative;
+}
+
+.wheel-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.wheel-img {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.btn {
+    background-color: gold;
+    font-size: 25px;
+    color: black;
+    font-weight: bold;
+    margin-top: 30px;
+    margin: auto;
+    position: absolute;
+    top: 650px;
+    left: 220px;
+    padding: 20px;
+    border-radius: 25px;
+}
