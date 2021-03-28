@@ -1,6 +1,5 @@
 let wheel, logo, ligth, timeline, myReq, isStopped = false, result, resRotate, currPosition; //Объявил вспомогательные переменные.
-let wheelTexture = new PIXI.Texture.fromImage("./wheel/wheel.png", undefined, undefined, 1.0);
-let wheelbgTexture = new PIXI.Texture.fromImage("./wheel/wheel-bg.png", undefined, undefined, 1.0);
+let wheelTexture = new PIXI.Texture.fromImage("../wheel/wheel.png", undefined, undefined, 1.0);
 const angle = 2 * Math.PI / 12; //Делим 360 на секции по 12 шт
 PIXI.utils.skipHello(); //Убираем с консоли всякую дичь.
 let Application = PIXI.Application, // Создаем приложение
@@ -9,11 +8,11 @@ let Application = PIXI.Application, // Создаем приложение
     resources = PIXI.loader.resources, //Подключение ресурсов
     Sprite = PIXI.Sprite; //Для создания спрайтов
 let app = new Application({ //Создаем переменную всей игры.
-    width: 600, //ширина поля.
-    height: 620, //высота поля.
+    width: 800, //ширина поля.
+    height: 800, //высота поля.
     antialias: true, //Сглаживание шрифтов и картинок.
     transparent: true, //прозрачность фона. Если тру то прозрачный.
-    resolution: 1 //Разрешение. Надо разобраться как оно работает.
+    resolution: 0.5 //Разрешение. Надо разобраться как оно работает.
 });
 
 document.body.appendChild(app.view); //Добавляем канвас элемент на страницу
@@ -37,19 +36,14 @@ function setup() { //Функция установки... Я так думаю �
         return
     }
     wheel = new PIXI.Sprite(wheelTexture);
-    wheelBg = new PIXI.Sprite(wheelbgTexture);
     wheel.anchor.set(0.5);
-    wheelBg.anchor.set(0.5)
     wheel.x = (app._options.width / 2)
     wheel.rotation = Math.random() * (Math.PI * 2); //Каждый раз рандом колеса.
     wheel.y = (app._options.height / 2)
-    wheelBg.x = (app._options.width / 2);
-    wheelBg.y = (app._options.height / 2)
     timeline = {
         rotate: 0.5 //Задаем rotate;
     };
     app.stage.addChild(wheel);
-    app.stage.addChild(wheelBg);
     app.render();
     start();
 }

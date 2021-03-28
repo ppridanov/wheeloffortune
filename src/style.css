@@ -1,24 +1,13 @@
-.wheel {
-    display: flex;
-    position: relative;
-}
-
-.wheel-bg {
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-.wheel-img {
-    position: absolute;
-    left: 20px;
-    top: 20px;
-}
-
 body {
     display: flex;
     flex-direction: column;
     margin: auto;
 }
+
+.wheel {
+    display: flex;
+    position: relative;
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));}
 
 .btn {
     background-color: gold;
@@ -29,7 +18,14 @@ body {
     margin: auto;
     position: absolute;
     top: 650px;
-    left: 220px;
+    left: 200px;
     padding: 20px;
     border-radius: 25px;
+    cursor: pointer;
+    border: pink 1px solid
+}
+
+.btn-disabled {
+    opacity: .6;
+    cursor: not-allowed;
 }
