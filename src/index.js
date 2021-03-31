@@ -1,5 +1,7 @@
 import "./style.css";
-
+import { gsap, TweenLite, TweenMax } from 'gsap';
+import html2canvas from 'html2canvas';
+import $ from 'jquery';
 class Wheel {
     constructor() {
         this.isStarted = false;
@@ -49,8 +51,32 @@ class Wheel {
             rotation: this.getResultAngle(),
             onComplete: () => {
                 cancelAnimationFrame(this.animate);
-                this.button.removeAttribute('disabled');
-                this.button.classList.remove('btn-disabled');
+                html2canvas(document.querySelector('.wheel'), {
+                    useCORS: true
+                }).then((canvas) => {
+                    var image = canvas.toDataURL("image/png");
+                    console.log(image);
+                    image = image.replace('data:image/png;base64,', '');
+                    var param = { imageData: image };
+                    console.log(param);
+                    // $.ajax({
+                    //     url: "https://api.imageban.ru/v1",
+                    //     data: JSON.stringify(param),
+                    //     dataType: "json",
+                    //     type: "POST",
+                    //     contentType: "application/json; charset=utf-8",
+                    //     // beforeSend: function (xhr) {
+                    //     //     xhr.setRequestHeader("Authorization", "TOKEN_xweGJ6REMINBHSntqu8u");
+                    //     // },
+                    //     success: function (data) {
+                    //         alert('Image saved successfully !');
+                    //     },
+                    //     error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    //         var err = eval("(" + XMLHttpRequest.responseText + ")");
+                    //     }
+                    // });
+                });
+
             }
         });
     }

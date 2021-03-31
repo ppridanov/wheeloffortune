@@ -1,7 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WebpackMd5Hash = require('webpack-md5-hash');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -20,11 +20,29 @@ module.exports = {
         {
             test: /\.css$/,
             use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
+        },
+        {
+            test: /\.(png|jpg|gif|ico|svg)$/,
+            use: [
+                'file-loader?name=../images/[name].[ext]', // указали папку, куда складывать изображения
+                {
+                    loader: 'image-webpack-loader',
+                    options: {}
+                },
+            ]
         }]
     },
     plugins: [
         new MiniCssExtractPlugin({
             filename: 'style.css'
+        }),
+        new OptimizeCssAssetsPlugin({
+            assetNameRegExp: /\.css$/g,
+            cssProcessor: require('cssnano'),
+            cssProcessorPluginOptions: {
+                preset: ['default'],
+            },
+            canPrint: true
         }),
         new HtmlWebpackPlugin({
             inject: false,
