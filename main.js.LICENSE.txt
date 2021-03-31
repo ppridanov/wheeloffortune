@@ -9,34 +9,9 @@
 */
 
 /*!
- * Sizzle CSS Selector Engine v2.3.6
- * https://sizzlejs.com/
- *
- * Copyright JS Foundation and other contributors
- * Released under the MIT license
- * https://js.foundation/
- *
- * Date: 2021-02-16
- */
-
-/*!
  * html2canvas 1.0.0-rc.7 <https://html2canvas.hertzen.com>
  * Copyright (c) 2020 Niklas von Hertzen <https://hertzen.com>
  * Released under MIT License
- */
-
-/*!
- * jQuery JavaScript Library v3.6.0
- * https://jquery.com/
- *
- * Includes Sizzle.js
- * https://sizzlejs.com/
- *
- * Copyright OpenJS Foundation and other contributors
- * Released under the MIT license
- * https://jquery.org/license
- *
- * Date: 2021-03-02T17:08Z
  */
 
 /*! *****************************************************************************
